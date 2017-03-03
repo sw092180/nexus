@@ -43,7 +43,7 @@ RUN mkdir -p /opt \
 RUN mkdir -p /opt/sonatype/nexus \
   && curl --fail --silent --location --retry 3 \
     ${NEXUS_URL} \
-  | gunzip 
+  | gunzip \
   | tar -x -C /tmp nexus-${NEXUS_VERSION} \
   && mv /tmp/nexus-${NEXUS_VERSION}/* /opt/sonatype/nexus/ \
   && rm -rf /tmp/nexus-${NEXUS_VERSION}
