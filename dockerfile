@@ -20,6 +20,7 @@ LABEL vendor=Sonatype \
 
 ENV SONATYPE_WORK /sonatype-work
 ENV NEXUS_VERSION 3.2.1-01
+ENV NEXUS_URL https://sonatype-download.global.ssl.fastly.net/nexus/oss/nexus-3.2.1-01-unix.tar.gz
 
 ENV JAVA_HOME /opt/java
 ENV JAVA_VERSION_MAJOR 8
@@ -41,7 +42,7 @@ RUN mkdir -p /opt \
 
 RUN mkdir -p /opt/sonatype/nexus \
   && curl --fail --silent --location --retry 3 \
-    https://download.sonatype.com/nexus/oss/nexus-${NEXUS_VERSION}-bundle.tar.gz \
+    ${NEXUS_URL} \
   | gunzip \
   | tar x -C /tmp nexus-${NEXUS_VERSION} \
   && mv /tmp/nexus-${NEXUS_VERSION}/* /opt/sonatype/nexus/ \
