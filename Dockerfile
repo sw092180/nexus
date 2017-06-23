@@ -1,6 +1,6 @@
-FROM       centos:centos7
+FROM centos:centos7
 
-MAINTAINER Sonatype <cloud-ops@sonatype.com>
+MAINTAINER Sonatype
 
 LABEL vendor=Sonatype \
   com.sonatype.license="Apache License, Version 2.0" \
